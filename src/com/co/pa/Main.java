@@ -55,12 +55,10 @@ class UnionFind{
 
         if(parent1 != parent2){
             if(node1 < node2){
-                int value1 = this.control[parent1];
-                this.control[parent1] = value1 - 1;
+                this.control[parent1] = this.control[parent1] + this.control[parent2];
                 this.control[node2] = node1;
             } else {
-                int value2 = this.control[parent2];
-                this.control[parent2] = value2 - 1;
+                this.control[parent2] = this.control[parent2] + this.control[parent1];
                 this.control[node1] = node2;
             }
         }
